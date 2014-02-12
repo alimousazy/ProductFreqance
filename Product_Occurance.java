@@ -35,6 +35,7 @@ public class Product_Occurance
         Scanner scanner = new Scanner(line);
         String template = "%s, %s";
         String num;
+	boolean found = false;
         while (scanner.hasNext()) 
         {
             String currentItem;
@@ -43,6 +44,11 @@ public class Product_Occurance
             {
                 for(String item : list)
                 {
+		    if(num.equals(item))
+		    {
+			    found = true;
+			    continue;
+		    }
                     totalKey = String.format(template, item, "*");
                     if(assoc.containsKey(totalKey))
                     {
@@ -63,7 +69,11 @@ public class Product_Occurance
                     }
                 }
             }
-            list.add(num);
+	    if(!found)
+	    {
+            	list.add(num);
+	    }
+	    found = false;
         }
       }
       @Override

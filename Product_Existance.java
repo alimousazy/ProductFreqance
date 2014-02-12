@@ -41,7 +41,7 @@ public class Product_Existance
 	  for(String item : list)
 	  {
 		MapWritable temp;
-		if(item == token)
+		if(item.equals(token))
 		{
 			found = true;
 			continue;
@@ -61,7 +61,7 @@ public class Product_Existance
 			}
 			else
 			{
-				temp.put(new Text(token), new IntWritable(((IntWritable) temp.get(token)).get() + 1));
+				temp.put(new Text(token), new IntWritable(((IntWritable) temp.get(new Text(token))).get() + 1));
 			}
 		}
 	  }

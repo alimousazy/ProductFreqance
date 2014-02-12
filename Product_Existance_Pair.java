@@ -40,7 +40,7 @@ public class Product_Existance_Pair
 	  for(String item : list)
 	  {
 		IntWritable temp;
-		if(item == token)
+		if(item.equals(token))
 		{
 			found = true;
 			continue;
