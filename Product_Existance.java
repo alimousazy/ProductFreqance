@@ -96,9 +96,14 @@ public class Product_Existance
                  MapWritable temp  = values.next();
 		 for(Writable id : temp.keySet())
 		 {
+			 String textId = ((Text) id).toString();
 			 value = ((IntWritable) temp.get(id)).get();
 			 sum += value;
-			 assoc.put(((Text) id).toString(), value);
+			 if(assoc.containsKey(textId))
+			 {
+				 value += assoc.get(textId);
+			 }
+			 assoc.put(textId, value);
 		 }
         }
 	for(String id : assoc.keySet())
